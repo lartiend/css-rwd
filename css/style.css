@@ -1,0 +1,247 @@
+* {
+	margin:0;
+	padding: 0;
+	box-sizing: border-box; /* to avoid overflows */
+}
+
+nav {
+	background-color: lightgreen;
+	width: 200px;
+	position: fixed;
+	height: 100%; /*If this is commented out, the height depends on the content of the section*/
+}
+
+main {
+	background-color: lightgrey;
+	margin-left: 200px;
+}
+
+.banner {
+	background-color: lightyellow;
+	height: 700px;
+	position: relative;
+}
+
+.about {
+	background-color: indianred;
+	height: auto;
+}
+
+.services {
+	background-color: midnightblue;
+	/*height: 300px*/
+	min-height: 300px;
+	color: lightgrey;
+}
+
+.projects {
+	background-color: lightblue;
+	height: 300px;
+}
+
+.gallery {
+	background-color: orange;
+	/*height: 400px*/
+	/*min-height: 400px*/
+		height: auto;
+}
+
+footer {
+	background-color: green;
+	/*height: 50px;*/
+	min-height: 50px;
+}
+
+nav,
+.banner,
+.about,
+.services,
+.projects,
+.gallery,
+footer {
+	padding: 30px;
+}
+
+.logo {
+	width: 140px;
+	height: 140px;
+	background-color: lightgrey;
+	margin: 0 auto; /* centers the element */
+}
+
+ul > li {
+	list-style: none;
+	background-color: white;
+	margin-bottom: 2px;
+	line-height: 48px;
+	text-align: center;
+}
+
+ul > li > a {
+	text-decoration: none;
+}
+
+.box {
+	border: 5px solid grey;
+	text-align: center;
+	width: 40%;
+	padding: 40px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.column {
+	border: 1px solid white;
+	width: 31%;
+	float: left;
+	margin-left: 1%;
+	margin-right: 1%;
+	padding: 20px;
+}
+
+.clear:after {
+	content: "";
+	display: block;
+	clear: both;
+} /*Don't forget to clear to the html class!*/
+
+img[alt*="Services"] { /* img is inherently an inline element */
+	border: 1px solid #fff;
+	width: 60px;
+	height: 60px;
+	display: block;
+	float: left;
+	margin-right: 10px;
+} /*the "*" tells the css parser na dapat may word na may keyword na "Services" yung alt*/
+
+img[alt*="Services"] ~ p { /* ~ means sibling; our code is targeting all the paragraphs in the img segment */
+	overflow: hidden;
+
+}
+
+img[alt*="Services"] ~ h3 {
+	margin-bottom: 10px;
+}
+
+.gallery > .column { /* > means that the targeted element is a child of the first mentioned element */
+	width: 23%;
+	margin: 0 1%;
+}
+
+img[alt*="Gallery"] { /* img is inherently an inline element */
+	border: 1px solid #fff;
+	width: 100%;
+	height: 100px;
+	display: block;
+	float: left;
+	margin-right: 10px;
+} /*the "*" tells the css parser na dapat may word na may keyword na "Gallery" yung alt*/
+
+img[alt*="Gallery"] ~ p { /* ~ means sibling; our code is targeting all the paragraphs in the img segment */
+	overflow: hidden;
+
+}
+
+img[alt*="Gallery"] ~ h3 {
+	margin-bottom: 10px;
+}
+
+.gallery > .column { /* > means that the targeted element is a child of the first mentioned element */
+	width: 23%;
+	margin: 0 1%;
+	border-color: black;
+}
+
+img[alt*="Social"] {
+	width: 30px;
+	height: 30px;
+	border: 1px solid black;
+	display: block;
+	float: left;
+	margin-right: 10px;
+}
+
+div.contact { /* Be careful to not put a space. If you wrote div. contact, then it would target all .contacts under a div, not just div.contact.*/
+	float: right;
+}
+
+div.logo {
+	margin-bottom: 20px;
+}
+
+
+
+
+/*MEDIA QUERIES BELOW*/
+
+/*mobile*/
+@media only screen and (max-width: 400px) {
+	nav {
+		position: static;
+		margin: 0 auto;
+		width: 100%;
+	}
+	main {
+		margin: 0 auto;
+	}
+	.box {
+		text-align: center;
+		width: 70%;
+		padding: 40px;
+	}
+	h1 {
+		padding-bottom: 30px; 
+	}
+	h2 {
+		padding-bottom: 20px;
+	}
+	.services > .column { 
+		display: block;
+		float: none;
+		width: 100%;
+		margin-bottom: 5%;
+	}
+	.gallery > .column {
+		width: 100%;
+		margin-bottom: 5%;
+	}
+	div.contact {
+		float: none;
+		display: inline-block;
+	}
+	footer {
+		text-align: center;
+	}
+}
+
+/*tablet*/
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+	.services > .column { 
+		display: block;
+		float: none;
+		width: 100%;
+		margin: 1%;
+	}
+	.gallery > .column {
+		width: 45%;
+		margin: 1%;
+	}
+	.box {
+		text-align: center;
+		width: 70%;
+		padding: 40px;
+	}
+	h1 {
+		padding-bottom: 30px; 
+	}
+	nav {
+	height: 100%;
+	}
+}
+
+/*laptop or desktop*/
+@media only screen and (min-width: 961px) {
+	
+}
